@@ -979,10 +979,26 @@ int main() {
 
     return 0;
 }
+Programs 16–19
+PROGRAM 1: Number of ways to represent n using 1 and 3 (DP) 
+#include <stdio.h> 
+int main() {    
+int n;   
+scanf("%d", &n);   
+long long dp[n + 1]; 
+for (int i = 0; i <= n; i++)     
+dp[i] = 0;  
+dp[0] = 1;   
+for (int i = 1; i <= n; i++) {    
+dp[i] = dp[i - 1];      
+if (i >= 3)        
+dp[i] += dp[i - 3];  
+} 
+printf("%lld", dp[n]);
+return 0;
+}  
 2-DP-Playing with chessboard
 Playing with Chessboard:
-
-
 Ram is given with an n*n chessboard with each cell with a monetary value. Ram stands at the (0,0), that the position of the top left white rook. He is been given a task to reach the bottom right black rook position (n-1, n-1) constrained that he needs to reach the position by traveling the maximum monetary path under the condition that he can only travel one step right or one step down the board. Help ram to achieve it by providing an efficient DP algorithm.
 
 
@@ -1043,7 +1059,7 @@ int main() {
 
     return 0;
 }
-Given two strings find the length of the common longest subsequence(need not be contiguous) between the two.
+3.Given two strings find the length of the common longest subsequence(need not be contiguous) between the two.
 
 
 
